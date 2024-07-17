@@ -1,0 +1,405 @@
+/* Basic Reset */
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* style.css */
+body {
+  background-color: rgb(0, 124, 255);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.125rem; /* 34px */
+  margin-bottom: 1.25rem; /* 20px */
+  text-align: center;
+  color: #ffffff;
+}
+
+/* ------------------------------------------------------------------ */
+/* LOGIN */
+
+.login-title {
+  font-size: 3.4375rem; /* 55px */
+  text-shadow: 
+    0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.3), /* 2px 2px 5px */
+    -0.125rem -0.125rem 0.3125rem rgba(255, 255, 255, 0.856); /* -2px -2px 5px */
+}
+
+/* Form styles */
+form.login {
+  background: hsl(0, 0%, 100%);
+  padding: 1.25rem; /* 20px */
+  border-radius: 0.625rem; /* 10px */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 0 4px 8px */
+  max-width: 25rem; /* 400px */
+  width: 60%;
+  position: relative;
+}
+
+form.login::before, form.login::after {
+  content: '';
+  position: absolute;
+  top: 0.3125rem; /* 5px */
+  left: 0.3125rem; /* 5px */
+  width: calc(100% - 0.625rem); /* 100% - 10px */
+  height: calc(100% - 0.625rem); /* 100% - 10px */
+  background: rgb(255, 255, 255);
+  z-index: -1;
+  box-shadow: 0 0 0.625rem hsla(0, 0%, 0%, 100%); /* 0 0 10px */
+  border-radius: 0.625rem; /* 10px */
+  transform: scale(1.05);
+}
+
+/* Input fields */
+form.login input[type="text"], form.login input[type="password"], form.login input[type="hidden"] {
+  width: calc(100% - 1.25rem); /* 100% - 20px */
+  padding: 0.625rem; /* 10px */
+  margin: 0.625rem 0; /* 10px 0 */
+  border: 0.0625rem solid #ccc; /* 1px */
+  border-radius: 0.3125rem; /* 5px */
+  box-shadow: inset 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1); /* 0 1px 3px */
+  transition: all 0.3s ease-in-out;
+}
+
+form.login input[type="text"]:focus, form.login input[type="password"]:focus {
+  border-color: #66afe9;
+  box-shadow: 0 0 0.5rem rgba(102, 175, 233, 0.6); /* 0 0 8px */
+  outline: none;
+}
+
+/* Submit button */
+button.login.form-submit {
+  width: calc(100% - 1.25rem); /* 100% - 20px */
+  padding: 0.625rem; /* 10px */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0.3125rem; /* 5px */
+  cursor: pointer;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* 0 4px 8px */
+  transition: all 0.3s ease-in-out;
+}
+
+button.login.form-submit:hover {
+  background-color: #0056b3;
+}
+
+button.login.form-submit:active {
+  background-color: #003f7f;
+  box-shadow: inset 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* 0 4px 8px */
+}
+/* ------------------------------------------------------------------ */
+
+
+/* ------------------------------------------------------------------ */
+/* HEADER */
+
+.container {
+  width: 100%;
+}
+
+#header {
+  background-color: grey;
+  padding: 0.625rem 1.25rem; /* 10px 20px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1); /* 0 4px 6px */
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+}
+
+.site-name a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem; /* 24px */
+  text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.5); /* 2px 2px 4px */
+}
+
+.user-tools {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.user-tools a {
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+}
+
+
+
+#logout-form {
+  margin-left: 0.625rem; /* 10px */
+  background-color: grey;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+#logout-form button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem; /* 16px */
+}
+
+#logout-form button:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------ */
+
+/* ----------------------------------------------------------------------- */
+/*                              ADD TRANSACTION                            */
+
+form {
+  max-width: 25rem; /* 400px */
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  padding: 1.25rem; /* 20px */
+  background: #fff;
+  border: 0.0625rem solid #ddd; /* 1px */
+  border-radius: 0.5rem; /* 8px */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* 0 4px 8px */
+  transform: perspective(1px) translateZ(0);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+form:hover {
+  box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.4); /* 0 6px 12px */
+  transform: scale(1.01);
+}
+
+.form-with-validation {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-with-validation label {
+  margin-bottom: 0.3125rem; /* 5px */
+  font-weight: bold;
+  color: #333;
+}
+
+.form-with-validation input[type="text"],
+.form-with-validation input[type="number"],
+.form-with-validation select,
+.form-with-validation textarea {
+  margin-bottom: 0.9375rem; /* 15px */
+  padding: 0.625rem; /* 10px */
+  border: 0.0625rem solid #ccc; /* 1px */
+  border-radius: 0.5rem; /* 8px */
+  font-size: 0.875rem; /* 14px */
+  box-shadow: inset 0 0.0625rem 0.1875rem rgb(0, 0, 0); /* 0 1px 3px */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.form-with-validation input[type="text"]:focus,
+.form-with-validation input[type="number"]:focus,
+.form-with-validation select:focus,
+.form-with-validation textarea:focus {
+  box-shadow: 0 0 0.5rem rgb(0, 0, 0); /* 0 0 8px */
+  outline: none;
+  transform: scale(1.01);
+}
+
+.form-submit {
+  padding: 0.75rem 1.25rem; /* 12px 20px */
+  background-color: #0c7cb5;
+  border: 0.0625rem solid #0c7cb5; /* 1px */
+  color: #fff;
+  font-size: 1rem; /* 16px */
+  cursor: pointer;
+  border-radius: 0.5rem; /* 8px */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0.25rem 0.375rem rgb(0, 0, 0); /* 0 4px 6px */
+}
+
+.form-submit:hover {
+  background-color: #095a89;
+  box-shadow: 0 0.375rem 0.5rem rgba(0, 0, 0, 0.4); /* 0 6px 8px */
+  transform: scale(1.02);
+}
+
+.errorlist {
+  margin-bottom: 0.625rem; /* 10px */
+  color: red;
+}
+
+input[type="hidden"] {
+  display: none;
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* ----------------------------------------------------------------------- */
+/* INVESTMENT CONTAINER */
+.investment-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.25rem; /* 20px */
+  color: white;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* VIEW TRANSACTION */
+/* Center the table */
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  width: 95%;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 0 4px 8px */
+  border-radius: 0.5rem; /* 8px */
+  overflow: hidden;
+}
+
+/* Add border to the table */
+table, th, td {
+  border: 0.0625rem solid #dddddd; /* 1px */
+}
+
+th, td {
+  padding: 0.75rem; /* 12px */
+  text-align: center;
+}
+
+/* Style the table header */
+th {
+  background-color: #f8f8f8;
+  font-size: 0.875rem; /* 14px */
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1); /* inset 0 -1px 0 */
+  background-color: hsl(187, 100%, 52%);
+  color: black;
+  font-weight: bold;
+}
+
+td {
+  font-size: 0.75rem; /* 12px */
+}
+
+tbody{
+  background-color: white;
+}
+/* Add hover effect to table rows */
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Style the delete button form */
+.delete-button-form {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Style the delete button */
+.delete-button-form button[type="submit"] {
+  background-color: #ff6666;
+  border: none;
+  color: white;
+  padding: 0.3125rem 0.625rem; /* 5px 10px */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.75rem; /* 12px */
+  margin: 0.25rem 0.125rem; /* 4px 2px */
+  cursor: pointer;
+  border-radius: 0.25rem; /* 4px */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2); /* 0 2px 4px */
+}
+
+button[type="submit"]:hover {
+  background-color: #ff3333;
+}
+
+/* --------------------------------------------------------------------------- */
+/* MEDIA QUERY FOR SMALLER SCREENS */
+
+
+@media (max-width: 600px) { 
+  /* LOGIN */
+  form.login {
+    padding: 15px;
+  }
+
+  form.login input[type="text"], form.login input[type="password"], button.login.form-submit {
+    width: calc(100% - 10px); 
+  }
+
+  /* HEADER */
+  #header {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .branding {
+    margin-bottom: 10px; 
+  }
+
+  .user-tools {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #logout-form {
+    margin-left: 0;
+  }
+
+/* ADD TRANSACTION */
+  form {
+    padding: 15px;
+    max-width: 80%;
+  }
+
+  .form-with-validation input[type="text"],
+  .form-with-validation input[type="number"],
+  .form-with-validation select,
+  .form-with-validation textarea {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .form-submit {
+    padding: 10px 15px;
+    font-size: 14px; /* 14px */
+  }
+
+}
+
+/* VIEW TRANSACTION */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+  }
+
+  th, td {
+    font-size: 10px;
+    padding: 8px; 
+  }
+}
+
+@media (max-width: 480) { 
+  th, td {
+    font-size: 8px; 
+    padding: 6px; 
+  }
+}
+/* ---------------------------------------------------------------------------------- */

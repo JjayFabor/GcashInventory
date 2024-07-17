@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Gcash Inventory
+{% endblock %}
+
+{% block content %}
+  <div class='investment-container'>
+    {% for investment in investments %}
+      <h3>Total Money: {{ investment.total_amount }}</h3>
+      <h6>Date: {{ investment.update_at }}</h6>
+    {% empty %}
+      <h2>No Investment Yet!</h2>
+    {% endfor %}
+  </div>
+  <br>
+  <h1>Transaction</h1>
+  <form class="form-with-validation" action="{% url "gcash-home" %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="form-group">
+      {{ form.transaction_type.label_tag }}
+      {{ form.transaction_type }}
+      {{ form.transaction_type.errors }}
+    </div>
+    <div class="form-group">
+      {{ form.amount.label_tag }}
+      {{ form.amount }}
+      {{ form.amount.errors }}
+    </div>
+    <div class="form-group">
+      {{ form.fee.label_tag }}
+      {{ form.fee }}
+      {{ form.fee.errors }}
+    </div>
+    <div class="form-group">
+      {{ form.description.label_tag }}
+      {{ form.description }}
+      {{ form.description.errors }}
+    </div>
+    <button class="form-submit">Add Transaction</button>
+  </form>
+
+{% endblock %}
