@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from gcash_inventory.views import home_view
 from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -26,3 +27,5 @@ urlpatterns = [
     path("login/", views.login_view, name="login"),
     path("gcash_inventory/", include("gcash_inventory.urls")),
 ]
+
+urlpatterns += staticfiles_urlpatterns()

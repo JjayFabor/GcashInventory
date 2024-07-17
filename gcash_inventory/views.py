@@ -52,7 +52,7 @@ def home_view(request):
 @login_required
 def view_transaction(request):
     transactions = Transaction.objects.filter(user=request.user)
-    paginator = Paginator(transactions, 5)
+    paginator = Paginator(transactions, 25)
 
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
