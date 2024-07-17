@@ -24,10 +24,13 @@
         <div class="user-tools">
             <a href="{% url 'gcash-home' %}">Home </a>|
             <a href="{% url 'view-transaction'%}">View Transaction </a>
-          <form id="logout-form" action="{% url 'logout' %}" method="post">
-            {% csrf_token %} |
-            <button type="submit"> Log out</button>
-          </form>        
+            <br/>
+            <form id="logout-form" action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit">
+                <img src="{% static 'media/logout-icon.png' %}" alt="logout icon">
+              </button>
+            </form>    
         </div>
       </header>
     </div>

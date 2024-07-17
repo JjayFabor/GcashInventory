@@ -1,38 +1,56 @@
-{% extends 'layout.html' %} 
+{% extends 'layout.html' %}
 
-{% block title %} 
-  Transaction 
-{% endblock %} 
+{% block title %}
+  Transaction History
+{% endblock %}
 
 {% block content %}
   <h1>Transaction History</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Transaction</th>
-        <th>Amount</th>
-        <th>Fee</th>
-        <th>Description</th>
-        <th>Date</th>
-        {% comment %} <th>Delete</th> {% endcomment %}
-      </tr>
-    </thead>
-    <tbody>
-      {% for transaction in transactions %}
+  <div class="transaction-table-wrapper">
+    <table class="transaction-table">
+      <thead>
         <tr>
-          <td>{{ transaction.transaction_type }}</td>
-          <td>{{ transaction.amount }}</td>
-          <td>{{ transaction.fee }}</td>
-          <td>{{transaction.description }}</td>
-          <td>{{ transaction.date }}</td>
-          {% comment %} <td>
-            <form class="delete-button-form" action="{% url 'delete-transaction' transaction.id %}" method="post" style="display:inline;">
-              {% csrf_token %} 
-              <button type="submit">x</button>
-            </form>
-          </td> {% endcomment %}
+          <th>Transaction</th>
+          <th>Amount</th>
+          <th>Fee</th>
+          <th>Description</th>
+          <th>Date</th>
+          {% comment %} <th>Delete</th> {% endcomment %}
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {% for transaction in page_obj %}
+          <tr>
+            <td>{{ transaction.transaction_type }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.fee }}</td>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.date }}</td>
+            {% comment %} <td>
+              <form class="delete-button-form" action="{% url 'delete-transaction' transaction.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">x</button>
+              </form>
+            </td> {% endcomment %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination">
+    <span class="step-links">
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">&#8592; Previous</a>
+      {% endif %}
+
+      <span class="current">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next &#8594;</a>
+      {% endif %}
+    </span>
+  </div>
 {% endblock %}

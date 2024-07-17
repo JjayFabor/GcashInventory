@@ -132,11 +132,16 @@ button.login.form-submit:active {
 }
 
 .user-tools a {
-  color: black;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   padding: 5px;
 }
 
+img {
+  width: 30px;
+  height: 30px;
+}
 
 
 #logout-form {
@@ -327,6 +332,28 @@ tbody tr:hover {
 
 button[type="submit"]:hover {
   background-color: #ff3333;
+}
+
+
+.transaction-table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.transaction-table th, .transaction-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.pagination, a{
+  display: flex;
+  color: white;
+  justify-content: center;
+  margin-top: 5px;
 }
 
 /* --------------------------------------------------------------------------- */

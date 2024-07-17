@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.core.paginator import Paginator
 from .models import Investment, Transaction
 from .serializer import InvestmentSerializer, TransactionSerializer
 from . import forms
@@ -51,10 +52,14 @@ def home_view(request):
 @login_required
 def view_transaction(request):
     transactions = Transaction.objects.filter(user=request.user)
+    paginator = Paginator(transactions, 5)
+
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
     return render(
         request,
         "view_transaction.html",
-        {"transactions": transactions, "show_navbar": True},
+        {"transactions": transactions, "show_navbar": True, "page_obj": page_obj},
     )
 
 
@@ -79,13 +84,3 @@ def logout_view(request):
     if request.method == "POST":
         logout(request)
         return redirect("/login/")
-
-
-# class InvestmentViewSet(viewsets.ModelViewSet):
-#     queryset = Investment.objects.all()
-#     serializer_class = InvestmentSerializer
-
-
-# class TransactionViewSet(viewsets.ModelViewSet):
-#     queryset = Transaction.objects.all()
-#     serializer_class = TransactionSerializer
