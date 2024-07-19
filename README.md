@@ -5,6 +5,10 @@
 I created this application because my Mom has a business for Gcash E-Wallet.
 This inventory system help my Mother manage the transactions as well as her income.
 
+# Note:
+This is a beginner project to practice my skills in using Django. 
+I also did not create a user sign up cause I deploy this online and only my Mother have the credentials.
+
 ## Live Demo
 
 To see a live demo of the application, watch the video below:
